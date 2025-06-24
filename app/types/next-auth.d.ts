@@ -1,6 +1,7 @@
-
+import { DefaultUser } from "next-auth";
 
 export type Kid = {
+  id: string;
   name: string;
   age: string;
 };

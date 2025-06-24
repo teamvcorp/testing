@@ -18,7 +18,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const db = (await client).db();
+    const db = (client).db();
     const users = db.collection("users");
     // If updates.kids exists and is an array, use $addToSet to add unique items to the kids array.
     const updateQuery: any = { $set: { ...updates } };
