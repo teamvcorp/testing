@@ -10,7 +10,7 @@ export default async function Page() {
 
 if (Array.isArray(session.user.kids)) {
   session.user.kids.forEach((kid: Kid) => {
-    console.log("Kid ID:", kid.id);
+    // For debugging: console.log("Kid ID:", kid.id);
   });
 }
 
@@ -47,7 +47,7 @@ if (Array.isArray(session.user.kids)) {
                 className="text-center group cursor-pointer no-underline"
               >
                 <div
-                  className="w-24 h-24 rounded-full bg-indigo-100 flex items-center justify-center text-4xl mb-2 transition duration-200 group-hover:bg-indigo-300 group-hover:scale-105"
+                  className="w-24 h-24 rounded-full bg-indigo-100 flex items-center justify-center text-4xl mb-2 transition duration-200 group-hover:bg-indigo-300 group-hover:scale-105 border-2 border-red-500"
                 >
                   {kid.name?.[0] || "K"}
                 </div>

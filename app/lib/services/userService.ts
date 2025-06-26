@@ -11,3 +11,4 @@ export async function updateUser(userId: string, updates: Record<string, unknown
   if (!res.ok) throw new Error(data.error || "Failed to update user");
   return data;
 }
+

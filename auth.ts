@@ -5,6 +5,8 @@ import { JWT } from "next-auth/jwt";
 
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import Google from "next-auth/providers/google";
+import Facebook from "next-auth/providers/facebook";
+import Auth0 from "next-auth/providers/auth0";
 import client from "./app/lib/db/db";
 import { Kid } from "./app/types/next-auth";
 
@@ -21,6 +23,22 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           response_type: "code",
         },
       },
+    }),
+    Facebook({
+      clientId: process.env.AUTH_FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.AUTH_FACEBOOK_CLIENT_SECRET,
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
+    }),
+    Auth0({
+      clientId: process.env.AUTH_AUTH0_ID,
+      clientSecret: process.env.AUTH_AUTH0_SECRET,
+      issuer: process.env.AUTH_AUTH0_ISSUER,
     }),
   ],
   session: {
